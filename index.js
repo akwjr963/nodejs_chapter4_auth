@@ -2,9 +2,10 @@
 const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-const posts = require('./posts.js');
+const posts = require('./posts');
 const app = express();
 const secretKey = 'secret';
+const port = 4000;
 
 app.use(express.json());
 app.use(cors());
@@ -31,7 +32,7 @@ function authMiddleware(req, res, next) {
     });
 }
 // 서버가 4000번 포트에서 듣기를 시작합니다. 서버가 시작되면 콘솔에 메시지를 출력합니다.
-const port = 4000;
+
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
 });
